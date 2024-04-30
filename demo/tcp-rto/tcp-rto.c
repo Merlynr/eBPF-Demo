@@ -13,8 +13,7 @@
 #endif
 
 #ifndef BPF_FUNC
-#define BPF_FUNC(NAME, ...) \
-	(*NAME)(__VA_ARGS__) = (void *)
+#define BPF_FUNC(NAME, ...) (*NAME)(__VA_ARGS__) = (void *)BPF_FUNC_##NAME
 #endif
 
 static void BPF_FUNC(trace_printk, const char *fmt, int fmt_size, ...);
